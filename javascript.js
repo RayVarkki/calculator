@@ -91,13 +91,27 @@ function evaluate(){
 
 function negativePositive(){
 
-    if(!operand){
-        firstNumber = "-" + firstNumber;
-        display.textContent = firstNumber;
-    }else{
-        secondNumber = "-" + secondNumber;
-        display.textContent = secondNumber;
+    if(display.textContent.startsWith("0")){
+        return;
     }
+    if(!display.textContent.includes("-")){
+        if(!operand){
+            firstNumber = -(firstNumber);
+            display.textContent = firstNumber;
+        }else{
+            secondNumber = -(secondNumber);
+            display.textContent = secondNumber;
+        }
+    }else{
+        if(!operand){
+            firstNumber = -(firstNumber);
+            display.textContent = firstNumber;
+        }else{
+            secondNumber = -(secondNumber);
+            display.textContent = secondNumber;
+        }
+    }
+
 }
 
 equalsButton.addEventListener("click", evaluate);
